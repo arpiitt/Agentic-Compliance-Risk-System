@@ -75,14 +75,16 @@ async def embed_text(text: str) -> list[float]:
 
         seen: set[str] = set()
         candidates: list[str] = []
+        # Candidates confirmed available on this API key (from models.list()).
         for m in [
             settings.gemini_embedding_model,
+            "models/gemini-embedding-001",
+            "models/gemini-embedding-2",
+            "models/gemini-embedding-2-preview",
             "models/text-embedding-004",
             "text-embedding-004",
             "models/embedding-001",
             "embedding-001",
-            "models/text-embedding-005",
-            "text-multilingual-embedding-002",
         ]:
             if m not in seen:
                 seen.add(m)
