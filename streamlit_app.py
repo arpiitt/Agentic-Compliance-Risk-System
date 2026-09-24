@@ -314,16 +314,18 @@ def run_pipeline_inline(entity_name: str, ticker: Optional[str] = None, api_key:
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
     start_t = time.time()
+    config = {"configurable": {"thread_id": f"inline-{int(time.time())}"}}
     try:
-        final_state = loop.run_until_complete(graph.ainvoke(initial_state))
+        final_state = loop.run_until_complete(graph.ainvoke(initial_state, config=config))
         elapsed = time.time() - start_t
+        report = final_state.get("draft_report") or {}
         return {
             "id": f"local-{int(time.time())}",
             "entity_name": entity_name,
             "ticker": ticker,
             "status": "DONE",
-            "overall_risk_level": final_state.get("draft_report", {}).get("overall_risk_level", "Medium"),
-            "report": final_state.get("draft_report", {}),
+            "overall_risk_level": report.get("overall_risk_level", "Medium"),
+            "report": report,
             "trace": final_state.get("execution_trace", []),
             "execution_time_seconds": round(elapsed, 2),
             "created_at": time.strftime("%Y-%m-%d %H:%M:%S"),

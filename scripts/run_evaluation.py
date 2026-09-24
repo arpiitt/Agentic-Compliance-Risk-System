@@ -246,7 +246,7 @@ async def run_evaluation(entity_limit: int | None = None, filter_ticker: str | N
     console.print(f"Evaluating {len(entities)} entities from golden test set...\n")
 
     init_embeddings()
-    graph = await create_compiled_graph()  # in-memory, no checkpointer for eval
+    graph = create_compiled_graph()  # in-memory, no checkpointer for eval
 
     results = []
     for i, entity in enumerate(entities, 1):

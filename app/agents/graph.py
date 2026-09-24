@@ -78,7 +78,7 @@ def create_compiled_graph_sync(use_memory: bool = True):
     return graph.compile(checkpointer=checkpointer)
 
 
-async def create_compiled_graph(checkpointer=None):
+def create_compiled_graph(checkpointer=None):
     """
     Compile the graph with an optional checkpointer.
     Falls back to MemorySaver if no checkpointer provided.

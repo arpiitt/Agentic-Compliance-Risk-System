@@ -154,7 +154,7 @@ async def _run_analysis(run_id: str, entity_name: str, ticker: str) -> None:
     }
 
     try:
-        graph = await create_compiled_graph()
+        graph = create_compiled_graph()
         config = {"configurable": {"thread_id": run_id}}
         step_index = 0
 
