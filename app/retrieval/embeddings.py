@@ -42,7 +42,15 @@ async def embed_text(text: str) -> list[float]:
     """
     try:
         client = _get_client()
-        candidates = [settings.gemini_embedding_model, "text-embedding-004", "embedding-001", "models/text-embedding-004"]
+        candidates = [
+            settings.gemini_embedding_model,
+            "models/text-embedding-004",
+            "text-embedding-004",
+            "models/embedding-001",
+            "embedding-001",
+            "models/text-embedding-005",
+            "text-multilingual-embedding-002",
+        ]
         for m in candidates:
             try:
                 result = client.models.embed_content(

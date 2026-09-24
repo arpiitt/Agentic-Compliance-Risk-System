@@ -88,7 +88,20 @@ def _generate_content_with_fallback(
     initial_model: str,
 ) -> Any:
     candidates = [initial_model]
-    for m in ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash", "gemini-1.5-pro", "gemini-2.0-flash-lite"]:
+    fallback_list = [
+        "gemini-1.5-flash",
+        "models/gemini-1.5-flash",
+        "gemini-1.5-flash-002",
+        "gemini-2.5-flash",
+        "models/gemini-2.5-flash",
+        "gemini-1.5-pro",
+        "models/gemini-1.5-pro",
+        "gemini-3.5-flash-lite",
+        "models/gemini-3.5-flash-lite",
+        "gemini-2.0-flash",
+        "models/gemini-2.0-flash",
+    ]
+    for m in fallback_list:
         if m not in candidates:
             candidates.append(m)
 
