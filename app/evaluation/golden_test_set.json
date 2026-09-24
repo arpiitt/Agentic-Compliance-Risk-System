@@ -1,0 +1,494 @@
+{
+  "description": "Golden test set for Agentic Compliance & Risk Research Assistant. 25 US equities with manually verified expected risk factors and citations.",
+  "version": "1.0",
+  "domain": "US equities — SEC EDGAR",
+  "entities": [
+    {
+      "entity_name": "Apple Inc",
+      "ticker": "AAPL",
+      "expected_risk_level": "Low",
+      "expected_risk_factors": [
+        {
+          "factor_name": "Supply Chain Concentration",
+          "level": "Medium",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["supply chain", "concentration", "manufacturer", "Taiwan", "China"]
+        },
+        {
+          "factor_name": "Regulatory Risk",
+          "level": "Medium",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["antitrust", "App Store", "regulatory", "investigation"]
+        }
+      ]
+    },
+    {
+      "entity_name": "Tesla Inc",
+      "ticker": "TSLA",
+      "expected_risk_level": "High",
+      "expected_risk_factors": [
+        {
+          "factor_name": "CEO Conduct and Governance",
+          "level": "High",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["Elon Musk", "Twitter", "conflict", "governance"]
+        },
+        {
+          "factor_name": "Vehicle Safety and Recall Risk",
+          "level": "High",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["recall", "NHTSA", "Autopilot", "safety"]
+        },
+        {
+          "factor_name": "Regulatory and Legal Proceedings",
+          "level": "Medium",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["legal proceedings", "litigation", "SEC"]
+        }
+      ]
+    },
+    {
+      "entity_name": "Microsoft Corporation",
+      "ticker": "MSFT",
+      "expected_risk_level": "Low",
+      "expected_risk_factors": [
+        {
+          "factor_name": "Antitrust and Regulatory Scrutiny",
+          "level": "Medium",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["antitrust", "competition", "regulatory", "Activision"]
+        },
+        {
+          "factor_name": "Cybersecurity Risk",
+          "level": "Medium",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["cybersecurity", "breach", "data security"]
+        }
+      ]
+    },
+    {
+      "entity_name": "Meta Platforms Inc",
+      "ticker": "META",
+      "expected_risk_level": "High",
+      "expected_risk_factors": [
+        {
+          "factor_name": "Privacy and Regulatory Fines",
+          "level": "High",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["privacy", "GDPR", "FTC", "fine", "regulatory"]
+        },
+        {
+          "factor_name": "Platform Content Moderation Risk",
+          "level": "Medium",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["content moderation", "misinformation", "Section 230"]
+        }
+      ]
+    },
+    {
+      "entity_name": "Amazon.com Inc",
+      "ticker": "AMZN",
+      "expected_risk_level": "Medium",
+      "expected_risk_factors": [
+        {
+          "factor_name": "Antitrust and Market Power Risk",
+          "level": "High",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["antitrust", "FTC", "market power", "competition"]
+        },
+        {
+          "factor_name": "Labor Relations Risk",
+          "level": "Medium",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["labor", "union", "worker", "NLRB"]
+        }
+      ]
+    },
+    {
+      "entity_name": "Alphabet Inc",
+      "ticker": "GOOGL",
+      "expected_risk_level": "Medium",
+      "expected_risk_factors": [
+        {
+          "factor_name": "Antitrust Litigation",
+          "level": "High",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["antitrust", "DOJ", "search monopoly", "advertising"]
+        },
+        {
+          "factor_name": "AI Ethics and Regulatory Risk",
+          "level": "Medium",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["artificial intelligence", "AI", "regulation", "ethics"]
+        }
+      ]
+    },
+    {
+      "entity_name": "Goldman Sachs Group Inc",
+      "ticker": "GS",
+      "expected_risk_level": "Medium",
+      "expected_risk_factors": [
+        {
+          "factor_name": "Regulatory Capital Requirements",
+          "level": "Medium",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["capital", "Basel", "regulatory", "stress test"]
+        },
+        {
+          "factor_name": "Legal and Compliance Risk",
+          "level": "Medium",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["legal proceedings", "settlement", "regulatory"]
+        }
+      ]
+    },
+    {
+      "entity_name": "JPMorgan Chase & Co",
+      "ticker": "JPM",
+      "expected_risk_level": "Medium",
+      "expected_risk_factors": [
+        {
+          "factor_name": "Regulatory and Compliance Risk",
+          "level": "Medium",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["regulation", "compliance", "CFPB", "OCC", "Fed"]
+        },
+        {
+          "factor_name": "Credit Risk Exposure",
+          "level": "Medium",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["credit risk", "loan", "default", "provision"]
+        }
+      ]
+    },
+    {
+      "entity_name": "Boeing Company",
+      "ticker": "BA",
+      "expected_risk_level": "High",
+      "expected_risk_factors": [
+        {
+          "factor_name": "Safety and Quality Control Risk",
+          "level": "High",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["737 MAX", "safety", "quality", "FAA", "grounding"]
+        },
+        {
+          "factor_name": "Government Contract Dependence",
+          "level": "Medium",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["government", "defense", "contract", "DoD"]
+        },
+        {
+          "factor_name": "Regulatory Compliance Risk",
+          "level": "High",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["FAA", "regulatory", "compliance", "investigation"]
+        }
+      ]
+    },
+    {
+      "entity_name": "Pfizer Inc",
+      "ticker": "PFE",
+      "expected_risk_level": "Medium",
+      "expected_risk_factors": [
+        {
+          "factor_name": "Drug Approval and Pipeline Risk",
+          "level": "Medium",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["FDA", "approval", "pipeline", "clinical trial"]
+        },
+        {
+          "factor_name": "Patent Cliff Risk",
+          "level": "High",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["patent", "expiration", "generic", "exclusivity"]
+        }
+      ]
+    },
+    {
+      "entity_name": "ExxonMobil Corporation",
+      "ticker": "XOM",
+      "expected_risk_level": "High",
+      "expected_risk_factors": [
+        {
+          "factor_name": "Climate and Environmental Regulatory Risk",
+          "level": "High",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["climate", "carbon", "emissions", "environmental", "regulatory"]
+        },
+        {
+          "factor_name": "Commodity Price Risk",
+          "level": "High",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["oil", "gas", "commodity", "price", "volatility"]
+        }
+      ]
+    },
+    {
+      "entity_name": "Nvidia Corporation",
+      "ticker": "NVDA",
+      "expected_risk_level": "Medium",
+      "expected_risk_factors": [
+        {
+          "factor_name": "Export Control and Geopolitical Risk",
+          "level": "High",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["export", "China", "semiconductor", "BIS", "restriction"]
+        },
+        {
+          "factor_name": "Customer Concentration Risk",
+          "level": "Medium",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["customer", "concentration", "hyperscaler", "cloud"]
+        }
+      ]
+    },
+    {
+      "entity_name": "Walt Disney Company",
+      "ticker": "DIS",
+      "expected_risk_level": "Medium",
+      "expected_risk_factors": [
+        {
+          "factor_name": "Streaming Profitability Risk",
+          "level": "Medium",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["Disney+", "streaming", "subscriber", "loss", "profitability"]
+        },
+        {
+          "factor_name": "Regulatory and Political Risk",
+          "level": "Low",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["regulatory", "government", "Florida", "political"]
+        }
+      ]
+    },
+    {
+      "entity_name": "Johnson & Johnson",
+      "ticker": "JNJ",
+      "expected_risk_level": "Medium",
+      "expected_risk_factors": [
+        {
+          "factor_name": "Product Liability and Litigation Risk",
+          "level": "High",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["talc", "litigation", "settlement", "liability", "asbestos"]
+        },
+        {
+          "factor_name": "Pharmaceutical Pricing Risk",
+          "level": "Medium",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["pricing", "IRA", "Medicare", "drug price negotiation"]
+        }
+      ]
+    },
+    {
+      "entity_name": "Citigroup Inc",
+      "ticker": "C",
+      "expected_risk_level": "Medium",
+      "expected_risk_factors": [
+        {
+          "factor_name": "Regulatory and Consent Order Risk",
+          "level": "High",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["consent order", "OCC", "Fed", "regulatory", "remediation"]
+        },
+        {
+          "factor_name": "Emerging Markets Exposure",
+          "level": "Medium",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["emerging markets", "international", "Russia", "geopolitical"]
+        }
+      ]
+    },
+    {
+      "entity_name": "Salesforce Inc",
+      "ticker": "CRM",
+      "expected_risk_level": "Low",
+      "expected_risk_factors": [
+        {
+          "factor_name": "Data Privacy and Security Risk",
+          "level": "Medium",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["data privacy", "security", "GDPR", "breach"]
+        },
+        {
+          "factor_name": "Competitive Pressure",
+          "level": "Medium",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["competition", "Microsoft", "Oracle", "market share"]
+        }
+      ]
+    },
+    {
+      "entity_name": "Netflix Inc",
+      "ticker": "NFLX",
+      "expected_risk_level": "Medium",
+      "expected_risk_factors": [
+        {
+          "factor_name": "Content Cost and Subscriber Retention Risk",
+          "level": "Medium",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["content", "subscriber", "churn", "competition", "spending"]
+        },
+        {
+          "factor_name": "International Regulatory Risk",
+          "level": "Low",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["international", "regulatory", "content regulation", "local"]
+        }
+      ]
+    },
+    {
+      "entity_name": "Uber Technologies Inc",
+      "ticker": "UBER",
+      "expected_risk_level": "High",
+      "expected_risk_factors": [
+        {
+          "factor_name": "Driver Classification and Labor Risk",
+          "level": "High",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["driver", "employee", "independent contractor", "AB5", "labor"]
+        },
+        {
+          "factor_name": "Regulatory and Licensing Risk",
+          "level": "High",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["regulatory", "license", "transportation", "ban"]
+        }
+      ]
+    },
+    {
+      "entity_name": "Snap Inc",
+      "ticker": "SNAP",
+      "expected_risk_level": "High",
+      "expected_risk_factors": [
+        {
+          "factor_name": "User Growth and Monetization Risk",
+          "level": "High",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["DAU", "revenue", "advertising", "user growth", "monetization"]
+        },
+        {
+          "factor_name": "Going Concern and Profitability Risk",
+          "level": "High",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["loss", "net loss", "cash", "going concern", "profitability"]
+        }
+      ]
+    },
+    {
+      "entity_name": "Moderna Inc",
+      "ticker": "MRNA",
+      "expected_risk_level": "High",
+      "expected_risk_factors": [
+        {
+          "factor_name": "Revenue Concentration Risk",
+          "level": "High",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["COVID", "vaccine", "revenue", "concentration", "decline"]
+        },
+        {
+          "factor_name": "Pipeline Execution Risk",
+          "level": "High",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["pipeline", "clinical", "mRNA", "development", "FDA"]
+        }
+      ]
+    },
+    {
+      "entity_name": "Coinbase Global Inc",
+      "ticker": "COIN",
+      "expected_risk_level": "High",
+      "expected_risk_factors": [
+        {
+          "factor_name": "Cryptocurrency Regulatory Risk",
+          "level": "High",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["SEC", "regulatory", "cryptocurrency", "enforcement", "Wells notice"]
+        },
+        {
+          "factor_name": "Revenue Concentration in Crypto Market",
+          "level": "High",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["trading volume", "crypto", "volatility", "revenue", "market"]
+        }
+      ]
+    },
+    {
+      "entity_name": "Rivian Automotive Inc",
+      "ticker": "RIVN",
+      "expected_risk_level": "High",
+      "expected_risk_factors": [
+        {
+          "factor_name": "Going Concern and Cash Burn Risk",
+          "level": "High",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["cash", "burn", "profitability", "net loss", "going concern"]
+        },
+        {
+          "factor_name": "Production Ramp Risk",
+          "level": "High",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["production", "vehicle", "ramp", "manufacturing", "delay"]
+        }
+      ]
+    },
+    {
+      "entity_name": "Block Inc",
+      "ticker": "SQ",
+      "expected_risk_level": "Medium",
+      "expected_risk_factors": [
+        {
+          "factor_name": "Regulatory and Financial Services Risk",
+          "level": "Medium",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["financial services", "regulatory", "banking", "CFPB", "compliance"]
+        },
+        {
+          "factor_name": "Fraud and Credit Risk",
+          "level": "Medium",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["fraud", "credit loss", "BNPL", "default", "loan"]
+        }
+      ]
+    },
+    {
+      "entity_name": "Palantir Technologies Inc",
+      "ticker": "PLTR",
+      "expected_risk_level": "Medium",
+      "expected_risk_factors": [
+        {
+          "factor_name": "Government Contract Concentration Risk",
+          "level": "High",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["government", "contract", "concentration", "federal", "revenue"]
+        },
+        {
+          "factor_name": "Data Privacy and Ethics Risk",
+          "level": "Medium",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["privacy", "surveillance", "data", "ethics", "reputational"]
+        }
+      ]
+    },
+    {
+      "entity_name": "Alibaba Group Holding Ltd",
+      "ticker": "BABA",
+      "expected_risk_level": "High",
+      "expected_risk_factors": [
+        {
+          "factor_name": "Chinese Regulatory and Geopolitical Risk",
+          "level": "High",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["China", "regulatory", "SAMR", "antitrust", "delisting"]
+        },
+        {
+          "factor_name": "Variable Interest Entity (VIE) Structure Risk",
+          "level": "High",
+          "required_citation_source": "edgar",
+          "required_citation_keywords": ["VIE", "variable interest entity", "control", "Chinese law"]
+        }
+      ]
+    }
+  ]
+}
