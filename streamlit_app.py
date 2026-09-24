@@ -259,12 +259,16 @@ def check_api_health() -> bool:
         return False
 
 
-def run_pipeline_api(entity_name: str, ticker: Optional[str] = None) -> Optional[Dict[str, Any]]:
+def run_pipeline_api(entity_name: str, ticker: Optional[str] = None, api_key: Optional[str] = None) -> Optional[Dict[str, Any]]:
     payload = {"entity_name": entity_name}
     if ticker:
         payload["ticker"] = ticker
+    headers = {}
+    if api_key:
+        headers["X-Google-API-Key"] = api_key
+
     try:
-        resp = requests.post(f"{API_BASE}/analyze", json=payload, timeout=5)
+        resp = requests.post(f"{API_BASE}/analyze", json=payload, headers=headers, timeout=5)
         if resp.status_code == 200:
             return resp.json()
     except Exception as e:
@@ -287,7 +291,10 @@ def poll_run_status(run_id: str, max_wait: int = 120) -> Optional[Dict[str, Any]
     return None
 
 
-def run_pipeline_inline(entity_name: str, ticker: Optional[str] = None) -> Dict[str, Any]:
+def run_pipeline_inline(entity_name: str, ticker: Optional[str] = None, api_key: Optional[str] = None) -> Dict[str, Any]:
+    if api_key:
+        os.environ["GOOGLE_API_KEY"] = api_key
+
     from app.agents.graph import create_compiled_graph
 
     graph = create_compiled_graph()
@@ -370,6 +377,15 @@ with st.sidebar:
         </div>
         """,
         unsafe_allow_html=True,
+    )
+
+    st.markdown('<div style="font-size:0.75rem; font-weight:600; color:#64748b; text-transform:uppercase; margin-bottom:0.5rem;">API Key Configuration</div>', unsafe_allow_html=True)
+    user_api_key = st.text_input(
+        "Google Gemini API Key",
+        value=os.getenv("GOOGLE_API_KEY", ""),
+        type="password",
+        placeholder="AIzaSy...",
+        help="Provide your Google Gemini API Key to run real-time agentic research.",
     )
 
     navigation_choice = st.radio(
@@ -455,10 +471,12 @@ if navigation_choice == "Entity Analysis":
         if execute_button:
             if not entity_name.strip():
                 st.error("Please enter a valid entity name.")
+            elif not user_api_key.strip():
+                st.error("Please provide a valid Google Gemini API Key in the left sidebar to execute live risk assessment.")
             else:
                 with st.spinner("Executing agent pipeline..."):
                     if api_online:
-                        init_res = run_pipeline_api(entity_name, ticker)
+                        init_res = run_pipeline_api(entity_name, ticker, api_key=user_api_key)
                         if init_res and "run_id" in init_res:
                             run_data = poll_run_status(init_res["run_id"])
                             if run_data:
@@ -468,7 +486,7 @@ if navigation_choice == "Entity Analysis":
                         else:
                             st.error("Failed to initiate analysis via API.")
                     else:
-                        run_data = run_pipeline_inline(entity_name, ticker)
+                        run_data = run_pipeline_inline(entity_name, ticker, api_key=user_api_key)
                         st.session_state["last_run_result"] = run_data
 
         if "last_run_result" in st.session_state:
