@@ -1,0 +1,28 @@
+# Environment variables
+.env
+
+# Python cache & virtualenv
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+.env/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local databases & storage
+*.db
+*.sqlite3
+qdrant_data/
+data/qdrant/
+redis_data/
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/
