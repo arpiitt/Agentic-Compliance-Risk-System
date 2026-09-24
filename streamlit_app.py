@@ -372,25 +372,14 @@ with st.sidebar:
         unsafe_allow_html=True,
     )
 
-    api_online = check_api_health()
-    status_label = "ONLINE" if api_online else "OFFLINE (INLINE MODE)"
-    status_color = "#34d399" if api_online else "#fbbf24"
-    st.markdown(
-        f"""
-        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:6px; padding:0.75rem; margin-bottom:1.25rem;">
-            <div style="font-size:0.7rem; font-weight:600; color:#64748b; text-transform:uppercase;">Backend Service</div>
-            <div style="font-size:0.85rem; font-weight:700; color:{status_color}; margin-top:0.25rem;">{status_label}</div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
+    # Always run inline — FastAPI backend is optional (local/Docker only).
+    # On Streamlit Cloud the pipeline executes directly in-process.
     st.markdown('<div style="font-size:0.75rem; font-weight:600; color:#64748b; text-transform:uppercase; margin-bottom:0.5rem;">API Key Configuration</div>', unsafe_allow_html=True)
     user_api_key = st.text_input(
         "Google Gemini API Key",
         value=os.getenv("GOOGLE_API_KEY", ""),
         type="password",
-        placeholder="AIzaSy...",
+        placeholder="Your Google AI Studio key",
         help="Provide your Google Gemini API Key to run real-time agentic research.",
     )
 
@@ -500,19 +489,8 @@ if navigation_choice == "Entity Analysis":
                 st.error("Please provide a valid Google Gemini API Key in the left sidebar to execute live risk assessment.")
             else:
                 with st.spinner("Executing agent pipeline..."):
-                    if api_online:
-                        init_res = run_pipeline_api(entity_name, ticker, api_key=user_api_key, model_name=selected_gemini_model)
-                        if init_res and "run_id" in init_res:
-                            run_data = poll_run_status(init_res["run_id"])
-                            if run_data:
-                                st.session_state["last_run_result"] = run_data
-                            else:
-                                st.error("Analysis execution timed out.")
-                        else:
-                            st.error("Failed to initiate analysis via API.")
-                    else:
-                        run_data = run_pipeline_inline(entity_name, ticker, api_key=user_api_key, model_name=selected_gemini_model)
-                        st.session_state["last_run_result"] = run_data
+                    run_data = run_pipeline_inline(entity_name, ticker, api_key=user_api_key, model_name=selected_gemini_model)
+                    st.session_state["last_run_result"] = run_data
 
         if "last_run_result" in st.session_state:
             data = st.session_state["last_run_result"]
