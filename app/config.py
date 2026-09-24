@@ -15,7 +15,7 @@ class Settings(BaseSettings):
 
     # ─── LLM ──────────────────────────────────────────────────────────────────
     google_api_key: str = ""
-    gemini_model: str = "gemini-1.5-flash"
+    gemini_model: str = "gemini-3.5-flash-lite"
     gemini_embedding_model: str = "models/text-embedding-004"
 
     # ─── News ─────────────────────────────────────────────────────────────────

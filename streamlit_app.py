@@ -398,11 +398,11 @@ with st.sidebar:
     selected_gemini_model = st.selectbox(
         "Google Gemini Model",
         [
-            "gemini-1.5-flash",
-            "gemini-2.5-flash",
-            "gemini-1.5-pro",
             "gemini-3.5-flash-lite",
-            "models/gemini-1.5-flash",
+            "gemini-2.5-flash",
+            "gemini-1.5-flash",
+            "gemini-1.5-pro",
+            "gemini-1.5-flash-002",
             "gemini-2.0-flash",
         ],
         index=0,

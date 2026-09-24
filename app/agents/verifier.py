@@ -87,17 +87,19 @@ def _generate_content_with_fallback(
     config: genai_types.GenerateContentConfig,
     initial_model: str,
 ) -> Any:
+    # gemini-3.5-flash-lite is first as it is the confirmed working model on the v1beta endpoint.
+    # Remaining entries are kept as fallback in case availability changes.
     candidates = [initial_model]
     fallback_list = [
+        "gemini-3.5-flash-lite",
+        "models/gemini-3.5-flash-lite",
+        "gemini-2.5-flash",
+        "models/gemini-2.5-flash",
         "gemini-1.5-flash",
         "models/gemini-1.5-flash",
         "gemini-1.5-flash-002",
-        "gemini-2.5-flash",
-        "models/gemini-2.5-flash",
         "gemini-1.5-pro",
         "models/gemini-1.5-pro",
-        "gemini-3.5-flash-lite",
-        "models/gemini-3.5-flash-lite",
         "gemini-2.0-flash",
         "models/gemini-2.0-flash",
     ]

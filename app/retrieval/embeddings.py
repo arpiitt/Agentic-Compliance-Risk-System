@@ -35,14 +35,47 @@ def _get_client() -> genai.Client:
     return _genai_client
 
 
+# Once a working embedding model is found, cache it to avoid re-probing every call.
+_working_embedding_model: str | None = None
+# Set to True after all candidates are exhausted so future calls skip API probing entirely.
+_embedding_unavailable: bool = False
+
+
 async def embed_text(text: str) -> list[float]:
     """
     Generate a dense embedding vector using Gemini text-embedding-004.
     Falls back to alternative embedding model names or zero vector on error.
+    Caches the first working model so subsequent calls are immediate.
+    Once all models fail, returns zero vectors without any further API calls.
     """
+    global _working_embedding_model, _embedding_unavailable
+
+    if _embedding_unavailable:
+        return [0.0] * EMBEDDING_DIM
+
     try:
         client = _get_client()
-        candidates = [
+
+        if _working_embedding_model:
+            try:
+                result = client.models.embed_content(
+                    model=_working_embedding_model,
+                    contents=text,
+                )
+                return result.embeddings[0].values
+            except Exception as exc:
+                if "404" in str(exc) or "NOT_FOUND" in str(exc) or "not found" in str(exc).lower():
+                    logger.warning(
+                        "Cached embedding model '%s' returned 404; re-probing candidates.",
+                        _working_embedding_model,
+                    )
+                    _working_embedding_model = None
+                else:
+                    raise exc
+
+        seen: set[str] = set()
+        candidates: list[str] = []
+        for m in [
             settings.gemini_embedding_model,
             "models/text-embedding-004",
             "text-embedding-004",
@@ -50,18 +83,31 @@ async def embed_text(text: str) -> list[float]:
             "embedding-001",
             "models/text-embedding-005",
             "text-multilingual-embedding-002",
-        ]
+        ]:
+            if m not in seen:
+                seen.add(m)
+                candidates.append(m)
+
         for m in candidates:
             try:
                 result = client.models.embed_content(
                     model=m,
                     contents=text,
                 )
+                _working_embedding_model = m
+                logger.info("Embedding model resolved to '%s'.", m)
                 return result.embeddings[0].values
             except Exception as exc:
                 if "404" in str(exc) or "NOT_FOUND" in str(exc) or "not found" in str(exc).lower():
+                    logger.debug("Embedding model '%s' returned 404, trying next.", m)
                     continue
                 raise exc
+
+        logger.warning(
+            "All embedding model candidates returned 404. Returning zero vectors for this session. "
+            "LLM risk scoring is unaffected; only Qdrant policy retrieval will be bypassed."
+        )
+        _embedding_unavailable = True
         return [0.0] * EMBEDDING_DIM
     except Exception as exc:
         logger.error("Embedding failed: %s", exc)

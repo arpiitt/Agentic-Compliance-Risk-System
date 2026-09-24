@@ -33,6 +33,11 @@ _ticker_cik_map: dict[str, str] = {}
 
 # ─── Retry policy ─────────────────────────────────────────────────────────────
 def _is_retryable(exc: Exception) -> bool:
+    """Return True only for transient errors worth retrying.
+
+    404 Not Found from EDGAR is a permanent failure — the filing does not exist —
+    so it must NOT be retried to avoid wasting time on every run.
+    """
     if isinstance(exc, httpx.HTTPStatusError):
         return exc.response.status_code in (429, 500, 502, 503, 504)
     return isinstance(exc, (httpx.TimeoutException, httpx.NetworkError))
@@ -40,7 +45,7 @@ def _is_retryable(exc: Exception) -> bool:
 
 def _edgar_retry(**kw):
     return retry(
-        retry=retry_if_exception_type((httpx.HTTPStatusError, httpx.TimeoutException, httpx.NetworkError)),
+        retry=retry_if_exception_type((httpx.TimeoutException, httpx.NetworkError)),
         stop=stop_after_attempt(settings.max_retries),
         wait=wait_exponential_jitter(initial=1, max=16),
         before_sleep=before_sleep_log(logger, logging.WARNING),
