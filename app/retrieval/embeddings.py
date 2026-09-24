@@ -19,7 +19,11 @@ settings = get_settings()
 
 _genai_client: Optional[genai.Client] = None
 
-EMBEDDING_DIM = 768  # Gemini text-embedding-004 dimension
+# Dimension varies by model:
+# text-embedding-004 / embedding-001  -> 768
+# gemini-embedding-001 / gemini-embedding-2 -> 3072
+# Default to 3072 (gemini-embedding-001) since that is what this API key uses.
+EMBEDDING_DIM = 3072
 
 
 def init_embeddings() -> None:
