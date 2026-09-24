@@ -8,6 +8,7 @@ from __future__ import annotations
 import hashlib
 import json
 import logging
+import os
 import time
 from typing import Any
 
@@ -125,6 +126,36 @@ Output ONLY valid JSON matching this exact schema:
 """
 
 
+def _generate_content_with_fallback(
+    client: genai.Client,
+    prompt: str,
+    config: genai_types.GenerateContentConfig,
+    initial_model: str,
+) -> Any:
+    candidates = [initial_model]
+    for m in ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash", "gemini-1.5-pro", "gemini-2.0-flash-lite"]:
+        if m not in candidates:
+            candidates.append(m)
+
+    last_error = None
+    for m in candidates:
+        try:
+            return client.models.generate_content(
+                model=m,
+                contents=prompt,
+                config=config,
+            )
+        except Exception as exc:
+            last_error = exc
+            exc_str = str(exc).lower()
+            if "404" in exc_str or "not_found" in exc_str or "no longer available" in exc_str or "not found" in exc_str:
+                logger.warning("[risk_scorer] Gemini model '%s' unavailable (404), attempting fallback...", m)
+                continue
+            raise exc
+    if last_error:
+        raise last_error
+
+
 async def risk_scorer_node(state: AgentState) -> dict:
     """
     LangGraph node: Risk-Scoring Agent.
@@ -168,9 +199,10 @@ async def risk_scorer_node(state: AgentState) -> dict:
         "Produce the risk report JSON now."
     )
 
+    active_model = os.getenv("GEMINI_MODEL", settings.gemini_model)
     cache_params = {
         "op": "risk_scorer",
-        "model": settings.gemini_model,
+        "model": active_model,
         "system": RISK_SCORER_SYSTEM_PROMPT[:200],
         "prompt_hash": hashlib.sha256(user_prompt.encode()).hexdigest(),
     }
@@ -187,13 +219,14 @@ async def risk_scorer_node(state: AgentState) -> dict:
         try:
             client = _get_client()
             full_prompt = f"{RISK_SCORER_SYSTEM_PROMPT}\n\n{user_prompt}"
-            response = client.models.generate_content(
-                model=settings.gemini_model,
-                contents=full_prompt,
+            response = _generate_content_with_fallback(
+                client=client,
+                prompt=full_prompt,
                 config=genai_types.GenerateContentConfig(
                     temperature=0.1,
                     response_mime_type="application/json",
                 ),
+                initial_model=active_model,
             )
             raw_text = response.text
 

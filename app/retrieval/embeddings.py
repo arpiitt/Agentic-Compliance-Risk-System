@@ -38,15 +38,23 @@ def _get_client() -> genai.Client:
 async def embed_text(text: str) -> list[float]:
     """
     Generate a dense embedding vector using Gemini text-embedding-004.
-    Falls back to a zero vector on error (non-fatal).
+    Falls back to alternative embedding model names or zero vector on error.
     """
     try:
         client = _get_client()
-        result = client.models.embed_content(
-            model=settings.gemini_embedding_model,
-            contents=text,
-        )
-        return result.embeddings[0].values
+        candidates = [settings.gemini_embedding_model, "text-embedding-004", "embedding-001", "models/text-embedding-004"]
+        for m in candidates:
+            try:
+                result = client.models.embed_content(
+                    model=m,
+                    contents=text,
+                )
+                return result.embeddings[0].values
+            except Exception as exc:
+                if "404" in str(exc) or "NOT_FOUND" in str(exc) or "not found" in str(exc).lower():
+                    continue
+                raise exc
+        return [0.0] * EMBEDDING_DIM
     except Exception as exc:
         logger.error("Embedding failed: %s", exc)
         return [0.0] * EMBEDDING_DIM

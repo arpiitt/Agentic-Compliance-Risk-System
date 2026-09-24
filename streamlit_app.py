@@ -259,13 +259,15 @@ def check_api_health() -> bool:
         return False
 
 
-def run_pipeline_api(entity_name: str, ticker: Optional[str] = None, api_key: Optional[str] = None) -> Optional[Dict[str, Any]]:
+def run_pipeline_api(entity_name: str, ticker: Optional[str] = None, api_key: Optional[str] = None, model_name: Optional[str] = None) -> Optional[Dict[str, Any]]:
     payload = {"entity_name": entity_name}
     if ticker:
         payload["ticker"] = ticker
     headers = {}
     if api_key:
         headers["X-Google-API-Key"] = api_key
+    if model_name:
+        headers["X-Gemini-Model"] = model_name
 
     try:
         resp = requests.post(f"{API_BASE}/analyze", json=payload, headers=headers, timeout=5)
@@ -291,9 +293,11 @@ def poll_run_status(run_id: str, max_wait: int = 120) -> Optional[Dict[str, Any]
     return None
 
 
-def run_pipeline_inline(entity_name: str, ticker: Optional[str] = None, api_key: Optional[str] = None) -> Dict[str, Any]:
+def run_pipeline_inline(entity_name: str, ticker: Optional[str] = None, api_key: Optional[str] = None, model_name: Optional[str] = None) -> Dict[str, Any]:
     if api_key:
         os.environ["GOOGLE_API_KEY"] = api_key
+    if model_name:
+        os.environ["GEMINI_MODEL"] = model_name
 
     from app.agents.graph import create_compiled_graph
 
@@ -390,6 +394,20 @@ with st.sidebar:
         help="Provide your Google Gemini API Key to run real-time agentic research.",
     )
 
+    st.markdown('<div style="font-size:0.75rem; font-weight:600; color:#64748b; text-transform:uppercase; margin-bottom:0.5rem; margin-top:0.75rem;">Model Selection</div>', unsafe_allow_html=True)
+    selected_gemini_model = st.selectbox(
+        "Google Gemini Model",
+        [
+            "gemini-2.5-flash",
+            "gemini-2.0-flash",
+            "gemini-1.5-flash",
+            "gemini-1.5-pro",
+            "gemini-2.0-flash-lite",
+        ],
+        index=0,
+        help="Select the Google Gemini model for risk scoring and verification.",
+    )
+
     navigation_choice = st.radio(
         "Navigation",
         ["Entity Analysis", "Execution History", "Audit Trace", "Documentation"],
@@ -478,7 +496,7 @@ if navigation_choice == "Entity Analysis":
             else:
                 with st.spinner("Executing agent pipeline..."):
                     if api_online:
-                        init_res = run_pipeline_api(entity_name, ticker, api_key=user_api_key)
+                        init_res = run_pipeline_api(entity_name, ticker, api_key=user_api_key, model_name=selected_gemini_model)
                         if init_res and "run_id" in init_res:
                             run_data = poll_run_status(init_res["run_id"])
                             if run_data:
@@ -488,7 +506,7 @@ if navigation_choice == "Entity Analysis":
                         else:
                             st.error("Failed to initiate analysis via API.")
                     else:
-                        run_data = run_pipeline_inline(entity_name, ticker, api_key=user_api_key)
+                        run_data = run_pipeline_inline(entity_name, ticker, api_key=user_api_key, model_name=selected_gemini_model)
                         st.session_state["last_run_result"] = run_data
 
         if "last_run_result" in st.session_state:
