@@ -1,0 +1,191 @@
+[
+  {
+    "doc_id": "sox-302",
+    "title": "Sarbanes-Oxley Act Section 302 — Corporate Responsibility for Financial Reports",
+    "doc_type": "regulation",
+    "regulation": "SOX",
+    "year": 2002,
+    "url": "https://www.sec.gov/rules/final/33-8124.htm",
+    "text": "Section 302 of the Sarbanes-Oxley Act requires the principal executive officer and principal financial officer to certify in each annual or quarterly report filed or submitted under Section 13(a) or 15(d) of the Exchange Act that they have reviewed the report, and based on their knowledge the report does not contain any untrue statement of material fact or omit to state a material fact necessary in order to make the statements made not misleading. Officers must also certify that the financial statements and other financial information included in the report fairly present in all material respects the financial condition and results of operations of the issuer. The certifying officers are responsible for establishing and maintaining disclosure controls and procedures and have evaluated the effectiveness of such controls. Any significant deficiencies or material weaknesses in internal control over financial reporting must be disclosed, along with any fraud that involves management or other employees who have a significant role in internal controls. False certifications can result in criminal penalties up to $5 million in fines and/or up to 20 years in prison."
+  },
+  {
+    "doc_id": "sox-404",
+    "title": "Sarbanes-Oxley Act Section 404 — Management Assessment of Internal Controls",
+    "doc_type": "regulation",
+    "regulation": "SOX",
+    "year": 2002,
+    "url": "https://www.sec.gov/rules/final/33-8238.htm",
+    "text": "Section 404 of Sarbanes-Oxley Act requires that each annual report contain an internal control report stating management's responsibility for establishing and maintaining adequate internal control structure and procedures for financial reporting. Management must assess the effectiveness of the internal control structure and procedures using an appropriate control framework such as COSO. If management identifies a material weakness in internal control over financial reporting, it cannot conclude that such controls are effective. Registered public accounting firms must attest to and report on management's assessment of internal controls. A material weakness is defined as a significant deficiency or combination of significant deficiencies in internal control that results in a more than remote likelihood that a material misstatement of the annual or interim financial statements will not be prevented or detected. Companies with material weaknesses face increased scrutiny from regulators and investors and may face liability claims."
+  },
+  {
+    "doc_id": "sox-806",
+    "title": "Sarbanes-Oxley Act Section 806 — Whistleblower Protections",
+    "doc_type": "regulation",
+    "regulation": "SOX",
+    "year": 2002,
+    "url": "https://www.dol.gov/agencies/oalj/PUBLIC/WHISTLEBLOWER/REFERENCES/STATUTES/SOX806",
+    "text": "Section 806 of the Sarbanes-Oxley Act prohibits publicly traded companies and their subsidiaries from retaliating against employees who provide information regarding conduct that the employee reasonably believes constitutes a violation of federal securities laws, SEC rules, or any provision of federal law relating to fraud against shareholders. Protected activities include providing information to a federal regulatory or law enforcement agency, congressional committee, or any supervisor or person with authority to investigate the conduct. Retaliation includes discharge, demotion, suspension, harassment, or any other manner of discrimination against an employee. Whistleblowers may file complaints with the Department of Labor within 180 days of the alleged retaliation. Remedies include reinstatement, back pay, and compensation for attorney fees. Criminal penalties of up to 10 years imprisonment apply to retaliatory actions."
+  },
+  {
+    "doc_id": "reg-fd",
+    "title": "Regulation FD (Fair Disclosure) — SEC Rule",
+    "doc_type": "regulation",
+    "regulation": "Reg-FD",
+    "year": 2000,
+    "url": "https://www.sec.gov/rules/final/33-7881.htm",
+    "text": "Regulation FD, adopted by the SEC in August 2000, addresses selective disclosure of material nonpublic information. When a public company or any person acting on behalf discloses material nonpublic information to certain securities market professionals or holders of the company's securities who may well trade on the basis of that information, the company must make public disclosure of that information simultaneously (for intentional disclosures) or promptly (for non-intentional disclosures). Covered persons include broker-dealers, investment advisers, investment companies, and holders of the company's securities. Non-public earnings guidance, merger discussions, new product announcements, or regulatory approvals shared selectively with analysts before public announcement violate Reg FD. Violations can result in SEC enforcement actions, including cease and desist orders, civil money penalties, and injunctions. The regulation does not apply to disclosures made in connection with registered offerings, communications made to ratings agencies, and certain other exempt disclosures."
+  },
+  {
+    "doc_id": "reg-sk-101",
+    "title": "Regulation S-K Item 101 — Description of Business",
+    "doc_type": "regulation",
+    "regulation": "Reg-S-K",
+    "year": 2020,
+    "url": "https://www.sec.gov/rules/final/2020/33-10825.pdf",
+    "text": "Regulation S-K Item 101 requires registrants to provide a description of the general development of their business during the past three years, or since inception for newer companies. Required disclosures include the form and year of organization, nature and results of any material reclassification or merger, acquisitions or dispositions of material assets outside the ordinary course of business, material changes in the mode of conducting business, and any material changes in the registrant's relationship with its customers. The description of business must include information about principal products and services, revenues from principal products and services, competitive conditions, human capital resources including the number of employees, and government regulation that materially affects the business. Companies must describe their business segments and disclose geographic area information. Material risk factors specific to the company and industry must be disclosed in Item 1A. The SEC updated these requirements in 2020 to require more focused, company-specific disclosures and eliminated prescriptive requirements in favor of a principles-based approach."
+  },
+  {
+    "doc_id": "reg-sk-303",
+    "title": "Regulation S-K Item 303 — Management's Discussion and Analysis",
+    "doc_type": "regulation",
+    "regulation": "Reg-S-K",
+    "year": 2020,
+    "url": "https://www.sec.gov/rules/final/2020/33-10825.pdf",
+    "text": "Regulation S-K Item 303 requires the Management Discussion and Analysis section (MD&A) to provide investors with a narrative explanation of results of operations, liquidity and capital resources, and other information necessary to understand financial condition. Companies must identify and describe known trends, events, uncertainties, or commitments that have had or are reasonably likely to have a material effect on financial condition or results of operations. The MD&A must explain year-over-year changes in revenues, costs, and margins. Liquidity analysis must disclose short-term and long-term material cash requirements and sources of funds. Off-balance sheet arrangements that have or reasonably likely will have a material effect must be disclosed in a separate section. Critical accounting estimates that involve significant judgment must be identified and explained. Companies must discuss material changes in financial condition including any unusual or infrequent events. The SEC requires forward-looking statements to be accompanied by meaningful cautionary language identifying important factors that could cause actual results to differ materially."
+  },
+  {
+    "doc_id": "aml-bsa",
+    "title": "Bank Secrecy Act / Anti-Money Laundering Requirements",
+    "doc_type": "regulation",
+    "regulation": "AML",
+    "year": 2020,
+    "url": "https://www.fincen.gov/resources/statutes-regulations/bank-secrecy-act",
+    "text": "The Bank Secrecy Act (BSA) requires financial institutions to assist U.S. government agencies in detecting and preventing money laundering. Financial institutions must establish and maintain anti-money laundering (AML) programs with four pillars: internal policies, procedures and controls; designation of a compliance officer; ongoing employee training; and independent audit function. Covered institutions must file Currency Transaction Reports (CTRs) for cash transactions over $10,000 and Suspicious Activity Reports (SARs) when they know or suspect that a transaction involves funds from illegal activity, is designed to evade reporting requirements, lacks a lawful purpose, or involves use of the bank to facilitate criminal activity. Know Your Customer (KYC) requirements mandate verification of customer identity, understanding of customer business activities, and ongoing monitoring of transactions for unusual activity. Failure to maintain adequate AML programs can result in civil monetary penalties, criminal prosecution, and reputational damage. The Financial Crimes Enforcement Network (FinCEN) administers the BSA."
+  },
+  {
+    "doc_id": "kyc-cdd",
+    "title": "Customer Due Diligence — FinCEN Final Rule",
+    "doc_type": "regulation",
+    "regulation": "KYC",
+    "year": 2018,
+    "url": "https://www.fincen.gov/resources/statutes-regulations/rules-and-regulations/customer-due-diligence-requirements-financial",
+    "text": "FinCEN's Customer Due Diligence (CDD) rule requires covered financial institutions to identify and verify the identity of beneficial owners of legal entity customers who own 25% or more of the entity or exercise significant control. CDD components include: customer identification and verification; beneficial ownership identification and verification; understanding the nature and purpose of customer relationships; and ongoing monitoring of customer relationships for suspicious activity and updating customer information. The rule covers banks, mutual funds, brokers or dealers in securities, futures commission merchants, and introducing brokers in commodities. Legal entities must certify their beneficial ownership information. The risk-based approach allows institutions to apply enhanced due diligence to higher-risk customers and simplified due diligence to lower-risk customers. Non-compliance with CDD requirements can result in civil and criminal penalties under the BSA. Institutions must maintain records of CDD information for five years after the account is closed."
+  },
+  {
+    "doc_id": "dodd-frank-929",
+    "title": "Dodd-Frank Act Section 929-Z — SEC Whistleblower Program",
+    "doc_type": "regulation",
+    "regulation": "Dodd-Frank",
+    "year": 2010,
+    "url": "https://www.sec.gov/whistleblower",
+    "text": "Section 21F of the Securities Exchange Act, added by the Dodd-Frank Wall Street Reform and Consumer Protection Act, created the SEC's whistleblower program. Whistleblowers who voluntarily provide original information about possible securities law violations to the SEC are eligible for awards between 10% and 30% of sanctions when the SEC's enforcement results in sanctions exceeding $1 million. Original information must be derived from the whistleblower's independent knowledge or analysis that is not known to the SEC from another source. The program prohibits employers from retaliating against employees who report securities violations internally or to the SEC. Whistleblowers may report anonymously through an attorney. The SEC has paid over $1 billion in whistleblower awards since 2012. Tips have led to enforcement actions against insider trading, accounting fraud, foreign corrupt practices, and market manipulation. Employees of foreign corporations that are SEC registrants and employees of domestic subsidiaries of foreign corporations are eligible for awards."
+  },
+  {
+    "doc_id": "dodd-frank-615",
+    "title": "Dodd-Frank Act — Conflict Minerals Rule (Section 1502)",
+    "doc_type": "regulation",
+    "regulation": "Dodd-Frank",
+    "year": 2012,
+    "url": "https://www.sec.gov/rules/final/2012/34-67716.pdf",
+    "text": "Section 1502 of the Dodd-Frank Act requires SEC reporting companies that use conflict minerals (tantalum, tin, gold, and tungsten) in their products to disclose the source of those minerals. Companies must conduct reasonable country-of-origin inquiry to determine whether conflict minerals originated in the Democratic Republic of Congo or adjoining countries. If the inquiry reveals that conflict minerals may have originated in these covered countries or the origin cannot be determined, companies must conduct due diligence on the source and chain of custody of the minerals using a recognized framework such as the OECD Due Diligence Guidance. Results of due diligence must be described in a Conflict Minerals Report filed as an exhibit to the Form SD. Companies must obtain an independent private sector audit if they are unable to determine that their conflict minerals did not finance or benefit armed groups in covered countries. Failure to file required conflict minerals disclosures or providing materially false information can result in SEC enforcement action."
+  },
+  {
+    "doc_id": "finra-4511",
+    "title": "FINRA Rule 4511 — Books and Records Requirements",
+    "doc_type": "regulation",
+    "regulation": "FINRA",
+    "year": 2011,
+    "url": "https://www.finra.org/rules-guidance/rulebooks/finra-rules/4511",
+    "text": "FINRA Rule 4511 requires members to make and preserve books and records as required under FINRA rules, SEA Rules 17a-3 and 17a-4, and the applicable provisions of the Exchange Act. All required records must be preserved for at least six years, the first two in an easily accessible place. Records must be kept in a form that can be produced to regulators upon request. Electronic storage media used for books and records must maintain and preserve records for the period required under applicable Exchange Act and FINRA rules. Members must designate a member of senior management as the person responsible for maintenance and preservation of electronic storage media. Audit trail requirements must ensure records cannot be overwritten or erased and must be readable for the required retention period. Third-party storage vendors must meet regulatory requirements and members must have access to records at all times. FINRA may conduct examinations to verify compliance with books and records requirements. Violations can result in disciplinary proceedings, fines, suspension, or expulsion."
+  },
+  {
+    "doc_id": "finra-2010",
+    "title": "FINRA Rule 2010 — Standards of Commercial Honor and Principles of Trade",
+    "doc_type": "regulation",
+    "regulation": "FINRA",
+    "year": 2011,
+    "url": "https://www.finra.org/rules-guidance/rulebooks/finra-rules/2010",
+    "text": "FINRA Rule 2010 requires members in the conduct of their business to observe high standards of commercial honor and just and equitable principles of trade. This broad standard applies to all aspects of a member's business, not just securities transactions. The rule has been applied to a wide range of misconduct including unauthorized transactions, misrepresentations to customers, conversion of customer funds, failure to follow customer instructions, and conduct that evidences bad faith or dishonesty. Courts and arbitrators have interpreted the rule broadly to include any business conduct that violates notions of commercial fairness. FINRA enforcement actions under Rule 2010 include cases involving failure to disclose conflicts of interest, misleading marketing materials, improper handling of customer complaints, and violations of internal firm policies. Rule 2010 has been used in conjunction with other FINRA rules and SEC regulations. Sanctions for violations range from letters of caution to substantial fines, suspensions, and bars from the securities industry."
+  },
+  {
+    "doc_id": "finra-4370",
+    "title": "FINRA Rule 4370 — Business Continuity Plans and Emergency Contact Information",
+    "doc_type": "regulation",
+    "regulation": "FINRA",
+    "year": 2011,
+    "url": "https://www.finra.org/rules-guidance/rulebooks/finra-rules/4370",
+    "text": "FINRA Rule 4370 requires each member to create and maintain a written business continuity plan identifying procedures relating to an emergency or significant business disruption. The plan must be reasonably designed to enable the member to meet existing obligations to customers and address at minimum: data back-up and recovery; all mission critical systems; financial and operational assessments; alternate communications between customers, employees, and regulators; alternate physical location of employees; critical business constituent, bank, and counter-party impact; regulatory reporting; and customer access to funds and securities. The plan must be updated annually and whenever there is a material change to operations, structure, business, or location. Members must conduct annual reviews to determine whether any modifications are necessary. Specific emergency contact information must be filed with FINRA and updated within 17 business days of any change. Members must disclose their business continuity plans to customers upon request. FINRA reviews business continuity plans during examinations and may take enforcement action for inadequate planning."
+  },
+  {
+    "doc_id": "sec-1933-act",
+    "title": "Securities Act of 1933 — Registration and Disclosure Requirements",
+    "doc_type": "regulation",
+    "regulation": "SEC",
+    "year": 1933,
+    "url": "https://www.sec.gov/divisions/corpfin/33act.shtml",
+    "text": "The Securities Act of 1933 regulates the offer and sale of securities to ensure investors receive financial and other significant information when securities are being offered for public sale. The Act prohibits deceit, misrepresentations, and other fraud in the sale of securities. Companies must register securities offerings with the SEC unless an exemption is available. Registration statements must include information about the company's properties and business, securities being offered, management, financial statements certified by independent accountants, and legal proceedings. The registration process requires a prospectus that contains material information investors need to make informed decisions. Exempt transactions include private placements under Regulation D, intrastate offerings, small offerings under Regulation A+, crowdfunding under Regulation CF, and offerings to accredited investors. Liability under Section 11 attaches to any person who signed the registration statement if it contained an untrue statement of material fact or omitted a material fact. Due diligence defenses are available for non-issuer defendants who conducted reasonable investigation."
+  },
+  {
+    "doc_id": "sec-1934-act-10b5",
+    "title": "Securities Exchange Act Rule 10b-5 — Anti-Fraud Provisions",
+    "doc_type": "regulation",
+    "regulation": "SEC",
+    "year": 1942,
+    "url": "https://www.sec.gov/rules/final/33-7881.htm",
+    "text": "SEC Rule 10b-5 prohibits any person from employing any device, scheme, or artifice to defraud; making any untrue statement of a material fact or omitting a material fact necessary to make statements not misleading; or engaging in any act, practice, or course of business that operates as a fraud or deceit upon any person, in connection with the purchase or sale of any security. The Supreme Court established that private plaintiffs must prove six elements: material misrepresentation or omission; scienter (intentional or reckless conduct); connection to the purchase or sale of a security; reliance; economic loss; and loss causation. Insider trading is prohibited as a violation of Rule 10b-5 when a person trades securities while in possession of material nonpublic information in breach of a duty owed to the company or its shareholders. The SEC and DOJ actively enforce Rule 10b-5 through civil and criminal actions. Statute of limitations is two years after discovery of the violation and five years after the violation itself. Disgorgement of profits and civil penalties up to triple the profit gained or loss avoided are available remedies."
+  },
+  {
+    "doc_id": "sec-insider-trading-10b5-1",
+    "title": "SEC Rule 10b5-1 — Trading Plans for Insiders",
+    "doc_type": "regulation",
+    "regulation": "SEC",
+    "year": 2022,
+    "url": "https://www.sec.gov/rules/final/2022/33-11138.pdf",
+    "text": "SEC Rule 10b5-1 provides an affirmative defense to insider trading liability for trades made pursuant to a pre-established trading plan. To qualify for the defense, the plan must be adopted at a time when the insider did not possess material nonpublic information. The 2022 amendments added new requirements including cooling-off periods before trading can commence (for officers and directors, the later of 90 days or to the next fiscal quarter end, up to 180 days; for other insiders, 30 days), certifications that the insider is not aware of MNPI when adopting the plan, prohibitions on overlapping trading plans, limits on single-trade plans, and enhanced disclosure requirements. Companies must disclose whether any insiders adopted, modified, or terminated a 10b5-1 plan in quarterly and annual filings. Departures from the plan must be disclosed. The 2022 amendments significantly tightened requirements to address concerns about opportunistic adoption of plans at times when insiders may have possessed inside information. Bona fide gifts of securities must also be reported on Form 4 within two business days."
+  },
+  {
+    "doc_id": "sec-reg-a-plus",
+    "title": "Regulation A+ — Scaled Securities Offering Exemption",
+    "doc_type": "regulation",
+    "regulation": "SEC",
+    "year": 2015,
+    "url": "https://www.sec.gov/smallbusiness/exemptofferings/rega",
+    "text": "Regulation A+, implemented under the JOBS Act, provides two tiers of exemption from full Securities Act registration. Tier 1 permits offerings up to $20 million in a 12-month period with no limit on the number of investors. Tier 2 permits offerings up to $75 million in a 12-month period with ongoing reporting requirements. Tier 2 companies must file audited financials and comply with ongoing reporting, including annual reports, semiannual reports, and current event reports. Non-accredited investors in Tier 2 offerings are limited to investing no more than 10% of the greater of annual income or net worth. Companies must file offering documents (Offering Circular) with the SEC and provide them to potential investors. Testing the waters before qualifying the offering is permitted. Tier 2 companies are preempted from state securities laws for offers and sales to qualified purchasers, simplifying the offering process. Regulation A+ has been used by real estate companies, fintech firms, and early-stage companies to raise capital from a broad investor base."
+  },
+  {
+    "doc_id": "sec-form-8k",
+    "title": "SEC Form 8-K — Current Report Filing Requirements",
+    "doc_type": "disclosure",
+    "regulation": "SEC",
+    "year": 2004,
+    "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&type=8-K&dateb=&owner=include&count=40",
+    "text": "SEC Form 8-K requires public companies to report certain material corporate events within four business days of occurrence. Reportable events include entry into or termination of material definitive agreements, results of operations and financial condition (earnings releases), bankruptcy or receivership, amendments to articles of incorporation or bylaws, changes in fiscal year, departure of directors or principal officers and appointment of new officers, amendments to code of ethics, failure to satisfy listing standards, unregistered sales of equity securities, material modifications to bondholder rights, and changes in independent auditors. Registrants must include any required exhibits such as material agreements, earnings press releases, and auditor communications. Failure to file a required 8-K within the four-business-day period can result in loss of eligibility to use short-form registration statements. The SEC may take enforcement action for failure to file or for filing a materially false 8-K. Large accelerated filers, accelerated filers, and non-accelerated filers all have the same four-business-day deadline."
+  },
+  {
+    "doc_id": "sec-proxy-rules",
+    "title": "SEC Proxy Rules — Shareholder Voting and Corporate Governance Disclosure",
+    "doc_type": "regulation",
+    "regulation": "SEC",
+    "year": 2010,
+    "url": "https://www.sec.gov/divisions/corpfin/guidance/proxy-guidance.htm",
+    "text": "SEC proxy rules govern how public companies communicate with shareholders about matters requiring shareholder votes. Proxy statements (Schedule 14A / DEF 14A) must disclose executive compensation including salary, bonus, equity awards, pension benefits, and perquisites for the CEO, CFO, and three other most highly compensated executives. Dodd-Frank say-on-pay provisions require advisory shareholder votes on executive compensation at least every three years and advisory votes on the frequency of such votes at least every six years. Proxy statements must include information about director nominees, audit committee composition and fees, related person transactions, and shareholder proposals. Under SEC rules, qualifying shareholders can include shareholder proposals in company proxy materials. Access to the proxy is available to shareholders holding at least 3% of voting shares for three years under SEC Rule 14a-11, though this rule was vacated by courts. Proxy advisory firms like ISS and Glass Lewis provide voting recommendations to institutional shareholders. Material failures in proxy disclosure can lead to enforcement actions and shareholder litigation."
+  },
+  {
+    "doc_id": "sec-materiality",
+    "title": "SEC Guidance on Materiality — Financial Statement Presentation",
+    "doc_type": "guidance",
+    "regulation": "SEC",
+    "year": 1999,
+    "url": "https://www.sec.gov/rules/interp/1999/33-7762.htm",
+    "text": "Information is material if there is a substantial likelihood that a reasonable investor would consider it important in making an investment decision or that the omitted information would have significantly altered the total mix of information available. Materiality requires both quantitative and qualitative analysis. A matter is not immaterial simply because it falls below a numerical threshold. Qualitative factors that may render information material despite quantitative immateriality include whether the misstatement arises from an item capable of precise measurement or estimation, whether it masks a change in earnings, whether it hides a failure to meet analyst consensus expectations, whether it changes a loss into income or vice versa, whether it concerns a segment or other portion of the business that plays a significant role in operations or profitability, whether it involves management's transaction that provides compensation, whether it concerns related-party transactions, whether it involves a regulatory matter with potential significant legal impact, and whether the misstatement has the effect of increasing management's compensation. The SEC has rejected bright-line materiality thresholds in favor of a facts-and-circumstances approach."
+  },
+  {
+    "doc_id": "sec-cybersecurity-rule",
+    "title": "SEC Cybersecurity Disclosure Rule — Material Incident Reporting",
+    "doc_type": "regulation",
+    "regulation": "SEC",
+    "year": 2023,
+    "url": "https://www.sec.gov/rules/final/2023/33-11216.pdf",
+    "text": "The SEC's 2023 cybersecurity disclosure rule requires public companies to disclose material cybersecurity incidents on Form 8-K within four business days of determining that an incident is material. Companies must describe the material aspects of the incident's nature, scope, and timing, and the incident's material impact or reasonably likely material impact on the company. Annual reports (Form 10-K) must include disclosure of the company's processes for assessing, identifying, and managing material risks from cybersecurity threats, whether cybersecurity risks have materially affected or are reasonably likely to materially affect business strategy, results of operations, or financial condition, and the board of directors' oversight of cybersecurity risks. Companies must also describe management's role and relevant expertise in assessing and managing cybersecurity risk. Disclosure of specific technical details that would impede incident response or remediation is not required. Foreign private issuers must make comparable disclosures on Form 20-F annually and Form 6-K for material incidents."
+  }
+]

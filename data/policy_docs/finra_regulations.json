@@ -1,0 +1,92 @@
+[
+  {
+    "doc_id": "finra-suitability-2111",
+    "title": "FINRA Rule 2111 — Suitability",
+    "doc_type": "regulation",
+    "regulation": "FINRA",
+    "year": 2012,
+    "url": "https://www.finra.org/rules-guidance/rulebooks/finra-rules/2111",
+    "text": "FINRA Rule 2111 requires that a member or associated person have a reasonable basis to believe that a recommended transaction or investment strategy involving securities is suitable for the customer. Suitability analysis must be based on information obtained through reasonable diligence to ascertain the customer's investment profile including age, financial situation and needs, tax status, investment objectives, investment experience, investment time horizon, liquidity needs, and risk tolerance. Three main suitability obligations apply: reasonable basis suitability (a recommendation must be suitable for at least some customers), customer-specific suitability (recommendation must be suitable for the specific customer), and quantitative suitability (a series of recommendations must not be excessive even if each individual recommendation is suitable). Institutional customers may waive certain suitability protections. The rule applies to explicit recommendations as well as implicit recommendations through hold recommendations. Evidence of suitability violations includes unsuitable recommendations, excessive trading (churning), and failure to follow customer instructions."
+  },
+  {
+    "doc_id": "finra-best-execution-5310",
+    "title": "FINRA Rule 5310 — Best Execution and Interpositioning",
+    "doc_type": "regulation",
+    "regulation": "FINRA",
+    "year": 2014,
+    "url": "https://www.finra.org/rules-guidance/rulebooks/finra-rules/5310",
+    "text": "FINRA Rule 5310 requires members to use reasonable diligence to ascertain the best market for a security and buy or sell in that market so that the resultant price to the customer is as favorable as possible under prevailing market conditions. Reasonable diligence factors include character of the market (e.g. price, volatility, relative liquidity, pressure on available communications), size and type of transaction, number of markets checked, and accessibility of quotation. Members must conduct regular and rigorous reviews of order execution quality and must periodically assess the quality of executions received. Payment for order flow arrangements must be disclosed to customers and must not compromise best execution obligations. Best execution is evaluated at the time of the transaction based on information reasonably available at that time. Interpositioning — introducing a third party between the member and the best available market — is prohibited unless it results in a better price for the customer or there is a legitimate business reason. Failure to achieve best execution can result in restitution to harmed customers and FINRA enforcement action."
+  },
+  {
+    "doc_id": "finra-anti-money-laundering-3310",
+    "title": "FINRA Rule 3310 — Anti-Money Laundering Compliance Program",
+    "doc_type": "regulation",
+    "regulation": "FINRA",
+    "year": 2011,
+    "url": "https://www.finra.org/rules-guidance/rulebooks/finra-rules/3310",
+    "text": "FINRA Rule 3310 requires each member to develop and implement a written AML compliance program reasonably designed to achieve and monitor compliance with BSA requirements applicable to broker-dealers. The program must include policies, procedures, and internal controls reasonably designed to achieve compliance with BSA and its implementing regulations. Members must designate a person or persons responsible for implementing and monitoring day-to-day operations of the AML program. An ongoing employee training program must be provided. Independent testing of the AML program must be conducted annually either by a qualified outside party or qualified internal personnel. Testing must be documented and retained for examination. Members must implement a customer identification program verifying the identity of customers. Special monitoring is required for accounts of foreign financial institutions and politically exposed persons (PEPs). Members must establish procedures for filing SARs for suspicious transactions and for recordkeeping. Failure to maintain an adequate AML program is a serious regulatory violation that can result in substantial fines."
+  },
+  {
+    "doc_id": "sec-reg-sho",
+    "title": "SEC Regulation SHO — Short Sales",
+    "doc_type": "regulation",
+    "regulation": "SEC",
+    "year": 2005,
+    "url": "https://www.sec.gov/rules/final/34-50103.htm",
+    "text": "SEC Regulation SHO establishes requirements for short sales in equity securities. The locate requirement mandates that broker-dealers have reasonable grounds to believe the security can be borrowed before effecting a short sale. The close-out requirement addresses fails to deliver in short sale transactions: for threshold securities (those with large fail-to-deliver positions), broker-dealers must close out any fail-to-deliver positions by purchasing shares of like kind and quantity within a specified time frame. Threshold securities are published daily by SROs. Rule 201 (the alternative uptick rule) restricts short selling in a security that has declined more than 10% in price in a single day by requiring short sales to be executed at a price above the current national best bid. Market manipulation through naked short selling — selling securities short without first borrowing or arranging to borrow them — is illegal. Prime brokers and clearing firms have responsibilities to manage fails-to-deliver. Violations can result in SEC enforcement actions, including restrictions on short selling in particular securities."
+  },
+  {
+    "doc_id": "sec-electronic-filing",
+    "title": "SEC EDGAR Electronic Filing Requirements",
+    "doc_type": "guidance",
+    "regulation": "SEC",
+    "year": 2018,
+    "url": "https://www.sec.gov/info/edgar/edgarfm-vol2-v58.pdf",
+    "text": "The SEC's EDGAR system is the primary method for companies to file required documents with the SEC. All registrants must file electronically unless granted a hardship exemption. Annual reports on Form 10-K must be filed within 60 days of fiscal year-end for large accelerated filers, 75 days for accelerated filers, and 90 days for non-accelerated filers. Quarterly reports on Form 10-Q must be filed within 40 days of each fiscal quarter for large accelerated filers and accelerated filers, and 45 days for non-accelerated filers. Current reports on Form 8-K must generally be filed within four business days of the triggering event. Proxy materials must be filed at least 40 days before the shareholder meeting. iXBRL (Inline eXtensible Business Reporting Language) tagging is required for financial statements in 10-K and 10-Q filings. Late filings trigger SEC delinquency notifications and can affect the ability to use short-form registration statements. The SEC may take enforcement action for chronic late filing or failure to file."
+  },
+  {
+    "doc_id": "fcpa",
+    "title": "Foreign Corrupt Practices Act (FCPA) — Anti-Bribery and Accounting Provisions",
+    "doc_type": "regulation",
+    "regulation": "SEC",
+    "year": 1977,
+    "url": "https://www.justice.gov/criminal/fraud/fcpa",
+    "text": "The Foreign Corrupt Practices Act prohibits U.S. persons and entities, as well as foreign issuers of SEC-registered securities, from bribing foreign government officials to obtain or retain business. Prohibited payments include anything of value (not just money) given directly or through intermediaries to a foreign official for the purpose of obtaining an improper advantage. The anti-bribery provisions require knowing conduct and cover payments, offers, promises, and authorizations. SEC-reporting companies must also maintain accurate books and records and implement adequate internal accounting controls under the accounting provisions, which do not require corrupt intent. Penalties include fines of up to $2 million per violation for companies (anti-bribery) and up to $25 million (accounting violations), and individuals face up to 5 years imprisonment and $250,000 fines. The DOJ and SEC jointly enforce the FCPA. Both agencies have emphasized the importance of robust compliance programs in voluntary disclosure and declination decisions. Third-party agents and distributors create significant FCPA risk requiring enhanced due diligence."
+  },
+  {
+    "doc_id": "sec-clawback-rule",
+    "title": "SEC Rule 10D-1 — Mandatory Executive Compensation Clawback Policy",
+    "doc_type": "regulation",
+    "regulation": "SEC",
+    "year": 2023,
+    "url": "https://www.sec.gov/rules/final/2022/33-11126.pdf",
+    "text": "SEC Rule 10D-1, implementing Section 954 of Dodd-Frank, requires listed companies to maintain policies requiring recovery (clawback) of incentive-based compensation received by executive officers in the event of a required accounting restatement due to material noncompliance with financial reporting requirements. The clawback applies to any executive who received excess incentive-based compensation during the three fiscal years preceding the restatement, regardless of fault or misconduct. Incentive-based compensation includes compensation granted, earned, or vested based on financial reporting measures such as earnings, revenues, EBITDA, stock price, or total shareholder return. Companies must file the clawback policy as an exhibit to annual reports, disclose whether a restatement triggered the policy in the reporting period, and disclose the reason for not recovering if any outstanding recovery obligation is not pursued. Stock exchanges (NYSE and Nasdaq) require companies to certify compliance as a listing condition. Failure to have a compliant clawback policy can result in delisting."
+  },
+  {
+    "doc_id": "sec-shareholder-reporting",
+    "title": "SEC Beneficial Ownership Reporting — Schedule 13D and 13G",
+    "doc_type": "regulation",
+    "regulation": "SEC",
+    "year": 2023,
+    "url": "https://www.sec.gov/rules/final/2023/33-11253.pdf",
+    "text": "Section 13(d) of the Securities Exchange Act requires persons who acquire beneficial ownership of more than 5% of a class of voting equity securities registered under Section 12 to file a Schedule 13D within five calendar days of crossing the 5% threshold (shortened from 10 days in 2023 amendments). Schedule 13D filers must disclose the purpose of the acquisition, including whether the filer has any plans to change control of the issuer, and must promptly amend the filing for any material change. Passive investors may file the shorter Schedule 13G if they acquired the securities in the ordinary course of business and without the purpose of changing control. Institutional investors may use Schedule 13G with later filing deadlines if they have not acquired the securities with a control purpose. Early warning of large shareholder accumulations allows the market and the company to respond to potential takeover activity. Failure to file timely or accurate reports is an Exchange Act violation that can result in SEC enforcement action and may affect the acquirer's ability to vote or dispose of the shares."
+  },
+  {
+    "doc_id": "sec-audit-committee",
+    "title": "SEC Rules on Audit Committee Requirements — Sarbanes-Oxley Section 301",
+    "doc_type": "regulation",
+    "regulation": "SOX",
+    "year": 2003,
+    "url": "https://www.sec.gov/rules/final/33-8220.htm",
+    "text": "Section 301 of Sarbanes-Oxley, implemented through Exchange Act Rule 10A-3, requires listed companies to have audit committees composed entirely of independent directors. Independence means no consulting, advisory, or compensatory fees from the company other than board fees and no affiliation with the company or any subsidiary. Audit committee responsibilities include direct responsibility for appointing, compensating, and overseeing the work of the outside auditor. The audit committee must establish procedures for receiving, retaining, and treating complaints regarding accounting, internal controls, or auditing matters, including anonymous submissions from employees. The audit committee may engage independent counsel and other advisors as it determines necessary. At least one member of the audit committee must be a financial expert, or the company must explain why it does not have a financial expert. Listed companies must disclose whether the audit committee financial expert is independent. Non-compliance with these requirements results in delisting from national securities exchanges and Nasdaq."
+  },
+  {
+    "doc_id": "sec-climate-rule",
+    "title": "SEC Climate Disclosure Rule — Proposed Climate-Related Risk Disclosures",
+    "doc_type": "regulation",
+    "regulation": "SEC",
+    "year": 2024,
+    "url": "https://www.sec.gov/rules/proposed/2022/33-11042.pdf",
+    "text": "The SEC proposed rules in 2022 requiring public companies to disclose material climate-related risks and their impacts on business strategy, financial condition, and results of operations. The proposed rules would require disclosure of direct (Scope 1), indirect (Scope 2), and in some cases supply chain (Scope 3) greenhouse gas emissions. Large accelerated filers would be required to obtain limited assurance on Scope 1 and Scope 2 emissions and eventually reasonable assurance. Companies must disclose climate-related targets and goals and their progress toward those goals. The rules would require disclosure of physical risks from climate change affecting business properties and operations, as well as transition risks from policy changes, new technologies, and market shifts. Financial statements must include disclosures of material climate-related impacts on specific line items. Implementation was subject to legal challenges with the SEC staying portions of the rules pending court review. Companies should monitor regulatory developments and assess readiness for enhanced climate disclosure regardless of the final rule outcome."
+  }
+]
