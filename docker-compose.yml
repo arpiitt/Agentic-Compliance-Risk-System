@@ -1,0 +1,114 @@
+version: "3.9"
+
+services:
+  # ─── Application ─────────────────────────────────────────────────────────────
+  app:
+    build: .
+    container_name: compliance_app
+    ports:
+      - "8000:8000"
+    env_file: .env
+    environment:
+      DATABASE_URL: "postgresql+asyncpg://compliance:compliance@postgres:5432/compliance_db"
+      DATABASE_SYNC_URL: "postgresql://compliance:compliance@postgres:5432/compliance_db"
+      REDIS_URL: "redis://redis:6379/0"
+      QDRANT_URL: "http://qdrant:6333"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      qdrant:
+        condition: service_started
+    volumes:
+      - ./:/app
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ─── PostgreSQL ───────────────────────────────────────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    container_name: compliance_postgres
+    environment:
+      POSTGRES_USER: compliance
+      POSTGRES_PASSWORD: compliance
+      POSTGRES_DB: compliance_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U compliance -d compliance_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: always
+
+  # ─── Redis ───────────────────────────────────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    container_name: compliance_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --maxmemory 512mb --maxmemory-policy allkeys-lru --save 60 1
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: always
+
+  # ─── Qdrant ──────────────────────────────────────────────────────────────────
+  qdrant:
+    image: qdrant/qdrant:v1.11.5
+    container_name: compliance_qdrant
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+    environment:
+      QDRANT__SERVICE__GRPC_PORT: "6334"
+    restart: always
+
+  # ─── Prometheus ──────────────────────────────────────────────────────────────
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: compliance_prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+      - "--web.console.libraries=/usr/share/prometheus/console_libraries"
+      - "--web.console.templates=/usr/share/prometheus/consoles"
+    restart: always
+
+  # ─── Grafana ─────────────────────────────────────────────────────────────────
+  grafana:
+    image: grafana/grafana:latest
+    container_name: compliance_grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: admin
+      GF_SECURITY_ADMIN_USER: admin
+    restart: always
+
+volumes:
+  postgres_data:
+  redis_data:
+  qdrant_data:
+  prometheus_data:
+  grafana_data:
