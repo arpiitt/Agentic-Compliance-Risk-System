@@ -216,17 +216,20 @@ The system automatically probes available models on your API key and falls throu
 
 ---
 
-## Evaluation Benchmark
+## Evaluation
 
-Empirical metrics collected across synthetic and historical test evaluations (N=50 entity runs):
+An automated evaluation harness is included in [`scripts/run_evaluation.py`](scripts/run_evaluation.py).
+It runs the full pipeline against a golden test set in [`data/golden_test_set.json`](data/golden_test_set.json)
+and scores citation precision, verifier flag accuracy, and latency.
 
-| Evaluation Dimension | Benchmark Value | Target | Status |
-|---|---|---|---|
-| Citation Precision | 98.2% | >= 95.0% | PASS |
-| Verifier Flag Accuracy | 96.5% | >= 90.0% | PASS |
-| Ungrounded Claim Removal Rate | 100.0% | 100.0% | PASS |
-| Mean Pipeline Latency (Warm Cache) | 3.82s | <= 5.00s | PASS |
-| Mean Pipeline Latency (Cold Run) | 14.15s | <= 25.00s | PASS |
+To run and generate real benchmark numbers:
+
+```bash
+GOOGLE_API_KEY=your_key python3 scripts/run_evaluation.py
+```
+
+Results are written to `evaluation_results.json`. Benchmark numbers will be added to this README
+once a full evaluation pass has been completed on the production configuration.
 
 ---
 

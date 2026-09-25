@@ -12,8 +12,9 @@ import os
 import time
 from typing import Any
 
-import google.genai as genai
 from google.genai import types as genai_types
+
+from app.llm.client import generate_content_with_fallback, get_client
 
 from app.agents.state import (
     AgentState,
@@ -41,9 +42,6 @@ AGENT_NAME = "risk_scorer"
 GEMINI_FLASH_INPUT_COST_PER_1M = 0.075
 GEMINI_FLASH_OUTPUT_COST_PER_1M = 0.30
 
-
-def _get_client() -> genai.Client:
-    return genai.Client(api_key=settings.google_api_key)
 
 
 def _estimate_cost(input_tokens: int, output_tokens: int) -> float:
@@ -126,49 +124,6 @@ Output ONLY valid JSON matching this exact schema:
 """
 
 
-def _generate_content_with_fallback(
-    client: genai.Client,
-    prompt: str,
-    config: genai_types.GenerateContentConfig,
-    initial_model: str,
-) -> Any:
-    # Ordered by preference — all confirmed working on this API key.
-    candidates = [initial_model]
-    fallback_list = [
-        "models/gemini-3.5-flash-lite",
-        "gemini-3.5-flash-lite",
-        "models/gemini-3.5-flash",
-        "models/gemini-3.8-flash",
-        "models/gemini-3.7-flash",
-        "models/gemini-3.6-flash",
-        "models/gemini-2.5-flash-lite",
-        "models/gemini-2.5-flash",
-        "models/gemini-flash-lite-latest",
-        "models/gemini-flash-latest",
-        "models/gemini-pro-latest",
-    ]
-    for m in fallback_list:
-        if m not in candidates:
-            candidates.append(m)
-
-    last_error = None
-    for m in candidates:
-        try:
-            return client.models.generate_content(
-                model=m,
-                contents=prompt,
-                config=config,
-            )
-        except Exception as exc:
-            last_error = exc
-            exc_str = str(exc).lower()
-            if "404" in exc_str or "not_found" in exc_str or "no longer available" in exc_str or "not found" in exc_str:
-                logger.warning("[risk_scorer] Gemini model '%s' unavailable (404), attempting fallback...", m)
-                continue
-            raise exc
-    if last_error:
-        raise last_error
-
 
 async def risk_scorer_node(state: AgentState) -> dict:
     """
@@ -231,9 +186,9 @@ async def risk_scorer_node(state: AgentState) -> dict:
         draft_report = cached
     else:
         try:
-            client = _get_client()
+            client = get_client(settings.google_api_key)
             full_prompt = f"{RISK_SCORER_SYSTEM_PROMPT}\n\n{user_prompt}"
-            response = _generate_content_with_fallback(
+            response = generate_content_with_fallback(
                 client=client,
                 prompt=full_prompt,
                 config=genai_types.GenerateContentConfig(

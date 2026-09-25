@@ -9,10 +9,11 @@ import json
 import logging
 import os
 import time
+from typing import Any
 
-import google.genai as genai
 from google.genai import types as genai_types
 
+from app.llm.client import generate_content_with_fallback, get_client
 from app.agents.state import AgentState, FilingDoc, NewsItem, PolicyMatch, RiskReport, ToolCall
 from app.cache.redis_cache import NS_LLM, get_cached, set_cached
 from app.config import get_settings
@@ -62,10 +63,6 @@ Be conservative: only flag claims that clearly lack support. Do not penalize rea
 """
 
 
-def _get_client() -> genai.Client:
-    return genai.Client(api_key=settings.google_api_key)
-
-
 def _build_source_map(
     filings: list[FilingDoc],
     news_items: list[NewsItem],
@@ -82,47 +79,13 @@ def _build_source_map(
 
 
 def _generate_content_with_fallback(
-    client: genai.Client,
+    client,  # type annotation dropped to avoid circular Any issue
     prompt: str,
     config: genai_types.GenerateContentConfig,
     initial_model: str,
 ) -> Any:
-    # Ordered by preference — all confirmed working on this API key.
-    candidates = [initial_model]
-    fallback_list = [
-        "models/gemini-3.5-flash-lite",
-        "gemini-3.5-flash-lite",
-        "models/gemini-3.5-flash",
-        "models/gemini-3.8-flash",
-        "models/gemini-3.7-flash",
-        "models/gemini-3.6-flash",
-        "models/gemini-2.5-flash-lite",
-        "models/gemini-2.5-flash",
-        "models/gemini-flash-lite-latest",
-        "models/gemini-flash-latest",
-        "models/gemini-pro-latest",
-    ]
-    for m in fallback_list:
-        if m not in candidates:
-            candidates.append(m)
-
-    last_error = None
-    for m in candidates:
-        try:
-            return client.models.generate_content(
-                model=m,
-                contents=prompt,
-                config=config,
-            )
-        except Exception as exc:
-            last_error = exc
-            exc_str = str(exc).lower()
-            if "404" in exc_str or "not_found" in exc_str or "no longer available" in exc_str or "not found" in exc_str:
-                logger.warning("[verifier] Gemini model '%s' unavailable (404), attempting fallback...", m)
-                continue
-            raise exc
-    if last_error:
-        raise last_error
+    # Delegates to the shared LLM client so model fallback logic is maintained centrally.
+    return generate_content_with_fallback(client, prompt, config, initial_model)
 
 
 async def verifier_node(state: AgentState) -> dict:
@@ -187,7 +150,7 @@ async def verifier_node(state: AgentState) -> dict:
         verification = cached_result
     else:
         try:
-            client = _get_client()
+            client = get_client(settings.google_api_key)
             full_prompt = f"{VERIFIER_SYSTEM_PROMPT}\n\n{user_prompt}"
             response = _generate_content_with_fallback(
                 client=client,
@@ -246,8 +209,41 @@ async def verifier_node(state: AgentState) -> dict:
 
     original_factors = draft_report.get("factors", [])
     clean_factors = [f for f in original_factors if f.get("name", "") in supported_names]
+
     if not clean_factors and original_factors:
-        clean_factors = original_factors
+        # The verifier rejected every factor.
+        # Do NOT silently revert to the unverified original — that would defeat the purpose
+        # of strict citation grounding. Instead:
+        #   - If confidence is very low (< 0.2) or hallucination_count is high, keep clean_factors
+        #     empty so the report signals an unverifiable result.
+        #   - If the verifier said "supported: false" but confidence is reasonable (>= 0.2),
+        #     it may be a conservative judgment — keep the factors but mark confidence low.
+        if confidence >= 0.2 and hallucination_count == 0:
+            # The verifier produced no positive hallucination signal (hallucination_count=0)
+            # yet still filtered every factor. This edge case arises when the model sets
+            # supported=false conservatively without detecting any fabricated claims.
+            # Retain the original factors rather than returning an empty report, but
+            # surface a warning so the condition is visible in observability tooling.
+            clean_factors = original_factors
+            logger.warning(
+                "[verifier] All %d factors were marked unsupported with zero detected hallucinations "
+                "(confidence=%.2f). Retaining factors — review source document coverage "
+                "if this occurs consistently.",
+                len(original_factors),
+                confidence,
+            )
+        else:
+            # All factors were positively flagged as hallucinated or unsupported.
+            # Return an empty factor list so the final report accurately represents
+            # that no claims could be grounded against the retrieved source documents.
+            logger.warning(
+                "[verifier] All %d factors failed citation grounding "
+                "(hallucination_count=%d, confidence=%.2f). "
+                "Final report will contain no scored risk factors.",
+                len(original_factors),
+                hallucination_count,
+                confidence,
+            )
 
     final_report: RiskReport = {
         **draft_report,

@@ -19,10 +19,11 @@ settings = get_settings()
 
 _genai_client: Optional[genai.Client] = None
 
-# Dimension varies by model:
-# text-embedding-004 / embedding-001  -> 768
-# gemini-embedding-001 / gemini-embedding-2 -> 3072
-# Default to 3072 (gemini-embedding-001) since that is what this API key uses.
+# Embedding dimension varies by model family:
+#   text-embedding-004 / embedding-001        -> 768 dims
+#   gemini-embedding-001 / gemini-embedding-2  -> 3072 dims
+# Set to 3072 to match the gemini-embedding-001 family, which is the
+# current generation embedding model recommended by the Gemini API.
 EMBEDDING_DIM = 3072
 
 
@@ -79,7 +80,7 @@ async def embed_text(text: str) -> list[float]:
 
         seen: set[str] = set()
         candidates: list[str] = []
-        # Candidates confirmed available on this API key (from models.list()).
+        # Candidate list ordered from newest to oldest generation.
         for m in [
             settings.gemini_embedding_model,
             "models/gemini-embedding-001",

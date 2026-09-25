@@ -271,12 +271,8 @@ async def test_verifier_accepts_clean_report():
     with (
         patch("app.cache.redis_cache.get_cached", new_callable=AsyncMock, return_value=None),
         patch("app.cache.redis_cache.set_cached", new_callable=AsyncMock),
-        patch("google.generativeai.GenerativeModel") as mock_model_cls,
+        patch("app.agents.verifier._generate_content_with_fallback", return_value=mock_response),
     ):
-        mock_model = MagicMock()
-        mock_model.generate_content.return_value = mock_response
-        mock_model_cls.return_value = mock_model
-
         from app.agents.verifier import verifier_node
         result = await verifier_node(state)
 
@@ -323,12 +319,8 @@ async def test_verifier_triggers_retry_on_high_flag_rate():
     with (
         patch("app.cache.redis_cache.get_cached", new_callable=AsyncMock, return_value=None),
         patch("app.cache.redis_cache.set_cached", new_callable=AsyncMock),
-        patch("google.generativeai.GenerativeModel") as mock_model_cls,
+        patch("app.agents.verifier._generate_content_with_fallback", return_value=mock_response),
     ):
-        mock_model = MagicMock()
-        mock_model.generate_content.return_value = mock_response
-        mock_model_cls.return_value = mock_model
-
         from app.agents.verifier import verifier_node
         result = await verifier_node(state)
 
